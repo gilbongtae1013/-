@@ -1,0 +1,221 @@
+/* 전체 영억 */
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+/* 헤더 버튼 폰트 */
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+/* 유저 이름 폰트 */
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff2);
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'A2z';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+/* Home 영역 */
+
+#Home-container {
+  background-color: rgb(33, 32, 32);
+  width: 100vw;
+  height: calc(100vh - 6.4vh);
+  position: fixed;
+  top: 6.4vh;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#Home-box {
+  width: 56vw;
+  height: 100%;
+  border: 1px solid rgb(82, 82, 82);
+  overflow-y: auto;
+}
+
+#Home-leftside {
+  width: 22vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position:sticky;
+  top: 0;
+}
+  #Home-profileBox {
+    width: 100%;
+    height: 44vh;
+    margin-top: 8.4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+    /* 로그인 기능 추가 전 임시 프로필사진 */
+    #Home-profileImage {
+      width: 204px;
+      height: 204px;
+      border-radius: 54%;
+      border: 1.4px solid rgb(48, 48, 48);
+      background-image: url('./assets/profileImage.jpg');
+      background-size: contain;
+    }
+    #Home-userName {
+      font-size: 24px;
+      margin-top: 24px;
+      color: rgb(156, 156, 156);
+      font-family: 'Pretendard';
+    }
+    #Home-add3 {
+      width: 247px;
+      position: absolute;
+      bottom: 27.4px;
+    }
+
+#Home-rightside {
+  width: 22vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:sticky;
+  top:0;
+}
+  #Home-add {
+    width: 17.4vw;
+    margin-top: 2.4vh;
+  }
+  #Home-add2 {
+      width: 254px;
+      height: 254px;
+      margin-top: 7.4vh
+    }
+
+#Home-sortBox {
+  margin-top: 6.4vh;
+  width: 100%;
+  height: 4.4vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 24px;
+}
+  #Home-sortBox > span {
+    color: rgb(167, 167, 167);
+  }
+  #Home-sortBox select {
+    margin-left: 14px;
+    width: 140px;
+    height: 24px;
+    background-color: rgb(190, 190, 190);
+  }
+
+#Home-boxContainer {
+  width: 100%;
+}
+  .Home-postCard {
+    border: 1px solid rgba(117, 117, 117, 0.475);
+    width: 100%;
+    height: 40px;
+    padding: 0px 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    text-decoration: none;
+  }
+    .Home-postCard span {
+      font-size: 18.4px;
+      color: white;
+      font-family: 'NanumSquareNeo';
+    }
+    #postCard-popular {
+      font-size: 14px;
+      color: rgb(155, 155, 155);
+    }
+
+/*Post 컴포넌트 영역*/
+
+#Post-container {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+  #Post-title {
+    width: 100%;
+    min-height: 10vh;
+    border-bottom: 1px solid rgb(101, 101, 101);
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 22.4px;
+    color: rgb(187, 187, 187);
+    font-family: 'A2z';
+    font-size: 14px;
+  }
+
+  #Post-contentBox {
+    width: 100%;
+    margin-top: 4vh;
+    color: rgb(230, 230, 230);
+    font-size: 15px;
+  }
+
+
+/*헤더 영역*/
+
+#Head-container {
+  width: 100%;
+  height: 6.4vh;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+  background-color: rgb(30, 29, 29);
+  border-bottom: 1px solid rgb(86, 86, 86);
+}
+
+#Head-container nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0px 14px;
+  font-size: 18px;
+  justify-content: left;
+}
+
+#Head-container a{
+  color: white;
+  text-decoration: none;
+  padding: 0px 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-family: 'GMarketSans';
+}
+
+#Head-container a:hover {
+  background-color: rgba(44, 44, 44, 0.668);
+}
