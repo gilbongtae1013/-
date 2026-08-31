@@ -179,9 +179,48 @@
     color: rgb(230, 230, 230);
     font-size: 15px;
   }
+  #Post-contentBox > pre {
+    overflow-x: hidden;
+    text-wrap: wrap;
+  }
+
+  #Post-bottom {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #Post-agreeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+    #Post-agreeButton {
+      width: 164px;
+      height: 64px;
+      border-radius: 4px;
+      border: 1px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgba(141, 141, 141, 0.595);
+      cursor: pointer;
+      transition-duration: 0.04s;
+    }
+    #Post-agreeButton.active {
+      background-color: rgb(153, 27, 27);
+      color: white;
+    }
+    #Post-agreeBox > span {
+      color: white;
+      font-size: 20.4px;
+      margin-bottom: 84px;
+      font-family: 'GMarketSans';
+      margin-top: 14px;
+    }
 
 
-/*헤더 영역*/
+/*Header 영역*/
 
 #Head-container {
   width: 100%;

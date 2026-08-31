@@ -15,7 +15,7 @@ export default function Upload() {
             alert("제목 또는 본문을 입력해주세요.");
             return;
         }
-        setUserPost([{ title: title, content: content, popular: 0 }, ...userPost])
+        setUserPost([{ id: Date.now(), title: title, content: content, popular: 0 }, ...userPost])
 
         alert("업로드 성공");
         navigate('/');
