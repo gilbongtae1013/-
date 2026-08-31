@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
 
 import add from '../assets/add.png';
 import add2 from '../assets/add2.png';
 import add3 from '../assets/add3.png';
 
+export default function Home({userPost, setUserPost}) {
 
-export default function Home() {
     return (
         <div id='Home-container'>
             <div id='Home-leftside'>
@@ -18,7 +19,7 @@ export default function Home() {
             </div>
 
             <div id='Home-box'>
-                <Outlet />
+                <Outlet context={{userPost, setUserPost}}/>
             </div>
 
             <div id='Home-rightside'>
