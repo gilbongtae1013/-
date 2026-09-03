@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* 헤더 버튼 폰트 */
 @font-face {
     font-family: 'GMarketSans';
@@ -33,6 +37,14 @@
     font-family: 'A2z';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-6@1.0/에이투지체-2ExtraLight.woff2') format('woff2');
     font-weight: 200;
+    font-display: swap;
+}
+
+/*궁서체*/
+@font-face {
+    font-family: 'JoseonPalace';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+    font-weight: normal;
     font-display: swap;
 }
 
@@ -86,6 +98,15 @@
       margin-top: 24px;
       color: rgb(156, 156, 156);
       font-family: 'Pretendard';
+    }
+    #Home-logOut {
+      margin-top: 4.2px;
+      color: rgba(0, 0, 255, 0.595);
+      font-size: 14px;
+      cursor: pointer;
+    }
+    #Home-logOut:hover {
+      color: purple;
     }
     #Home-add3 {
       width: 247px;
@@ -185,10 +206,10 @@
   }
 
   #Post-bottom {
-    margin-top: 40px;
+    margin-top: 140px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
   #Post-agreeBox {
     display: flex;
@@ -196,8 +217,8 @@
     align-items: center;
   }
     #Post-agreeButton {
-      width: 164px;
-      height: 64px;
+      width: 124px;
+      height: 44px;
       border-radius: 4px;
       border: 1px solid white;
       display: flex;
@@ -206,6 +227,8 @@
       color: rgba(141, 141, 141, 0.595);
       cursor: pointer;
       transition-duration: 0.04s;
+      font-size: 20.4px;
+      font-family: 'JoseonPalace';
     }
     #Post-agreeButton.active {
       background-color: rgb(153, 27, 27);
@@ -315,3 +338,153 @@
     outline: none;
     border: 2px solid gray;
   }
+
+/* Login 영역*/
+
+#Login-container {
+  background-color: rgb(33, 32, 32);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#Login-box {
+  width: 64vw;
+  height: 100vh;
+  border: 1px solid rgb(65, 64, 64);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+}
+
+.Login-title {
+  color: white;
+  font-family: 'Pretendard';
+}
+
+.Login-content {
+  display: flex;
+  flex-direction: column;
+  width: 54%;
+  margin-top: 42px;
+  gap: 8.4px;
+}
+  .Login-content > label {
+    color: white;
+    font-size: 20.4px;
+    font-family: 'NanumSquareNeo';
+  }
+  .Login-content > input {
+    height: 40px;
+    outline: none;
+    font-size: 20.4px;
+    padding: 0px 10.4px;
+    background-color: rgba(191, 191, 191, 0.09);
+    border: 1px solid gray;
+    color: white;
+    font-family: 'A2z';
+  }
+
+#Login-button {
+  width: 54%;
+  height: 54px;
+  margin-top: 6.4%;
+  cursor: pointer;
+  background-color: rgba(110, 110, 110, 0.111);
+  border: 1px solid rgb(117, 117, 117);
+  border-radius: 14px;
+  color: white;
+  font-size: 18.4px;
+  font-family: 'A2z';
+}
+#Login-button:hover {
+  background-color: rgb(98, 98, 98);
+}
+#Login-boxBottom {
+  width: 54%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6.4px;
+  padding: 0px 4px;
+  gap: 14px;
+}
+  #Login-boxBottom > span, #Login-boxBottom a {
+    color: rgb(119, 119, 119);
+    cursor: pointer;
+    font-size: 14px;
+  }
+  #Login-boxBottom > span:hover, #Login-boxBottom a:hover {
+    color: rgb(187, 187, 187);
+  }
+
+/* Login 영역*/
+
+#Sign-container {
+  background-color: rgb(33, 32, 32);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+#Sign-box {
+  width: 64vw;
+  height: 100vh;
+  border: 1px solid rgb(65, 64, 64);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+}
+
+#Sign-button {
+  width: 54%;
+  height: 54px;
+  margin-top: 6.4%;
+  cursor: pointer;
+  background-color: rgba(110, 110, 110, 0.111);
+  border: 1px solid rgb(117, 117, 117);
+  border-radius: 14px;
+  color: white;
+  font-size: 18.4px;
+  font-family: 'A2z';
+}
+#Sign-button:hover {
+  background-color: rgb(98, 98, 98);
+}
+#Sign-boxBottom {
+  width: 54%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6.4px;
+  padding: 0px 4px;
+  gap: 14px;
+}
+  #Sign-boxBottom > span, #Sign-boxBottom a {
+    color: rgb(119, 119, 119);
+    cursor: pointer;
+    font-size: 14px;
+  }
+  #Sign-boxBottom > span:hover, #Sign-boxBottom a:hover {
+    color: rgb(187, 187, 187);
+  }
+
+/*Today 영역*/
+
+#Today-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+#Today-ChatBox {
+  width: 80%;
+  height: 82%;
+  border: 1px solid rgb(134, 134, 134);
+  border-radius: 4px;
+}

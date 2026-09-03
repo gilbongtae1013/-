@@ -13,6 +13,7 @@ export default function Home({userPost, setUserPost}) {
                 <div id='Home-profileBox'>
                     <div id='Home-profileImage'></div>
                     <span id='Home-userName'>최지누 • 1013</span>
+                    <span id='Home-logOut'>로그아웃</span>
                 </div>
 
                 <img src={add3} id='Home-add3'/>

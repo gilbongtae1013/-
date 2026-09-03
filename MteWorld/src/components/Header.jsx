@@ -8,6 +8,7 @@ export default function Head() {
                 <Link to="/">홈</Link>
                 <Link to="/upload">글쓰기</Link>
                 <Link to="/today">오늘의 정보</Link>
+                <Link to="/login">로그인</Link>
             </nav>
         </header>
     )
