@@ -4,6 +4,13 @@ export default function Today() {
             <div id='Today-ChatBox'>
 
             </div>
+
+            <div id='Today-inputBox'>
+                <input id='Today-input'/>
+                <button id='Today-inputSubmit'>
+                    &uarr;
+                </button>
+            </div>
         </div>
     )
 }

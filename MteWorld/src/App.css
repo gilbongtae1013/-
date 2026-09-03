@@ -488,3 +488,28 @@ a {
   border: 1px solid rgb(134, 134, 134);
   border-radius: 4px;
 }
+
+#Today-inputBox {
+  display: flex;
+  margin-top: 42px;
+}
+
+#Today-input {
+  height: 54px;
+  width: 540px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.162);
+  border: 0px;
+  padding: 0px 14px;
+  font-size: 16.4px;
+  color: white;
+}
+
+#Today-inputSubmit {
+  width: 54px;
+  border-radius: 0px 4px 4px 0px;
+  cursor: pointer;
+  font-size: 24px;
+  background-color: rgb(58, 58, 58);
+  border: 1px solid rgb(34, 34, 34);
+}
