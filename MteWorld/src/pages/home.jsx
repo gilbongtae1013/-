@@ -1,24 +1,31 @@
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import add from '../assets/add.png';
 import add2 from '../assets/add2.png';
 import add3 from '../assets/add3.png';
 
-export default function Home({userPost, setUserPost}) {
+export default function Home({userPost, setUserPost, user, setUser}) {
+    const navigate = useNavigate();
+    const logout = async () => {
+        await fetch('/api/auth/logout', { method: 'POST', headers: { Authorization: `Bearer ${localStorage.getItem('mteworld_token') || ''}` } });
+        localStorage.removeItem('mteworld_token');
+        setUser(null);
+        navigate('/login', { replace: true });
+    };
 
     return (
         <div id='Home-container'>
             <div id='Home-leftside'>
                 <div id='Home-profileBox'>
-                    <div id='Home-profileImage'></div>
-                    <span id='Home-userName'>최지누 • 1013</span>
-                    <span id='Home-logOut'>로그아웃</span>
+                    <div id='Home-profileImage' style={user?.profileImage ? { backgroundImage: `url(${user.profileImage})` } : undefined}></div>
+                    <span id='Home-userName'>{user?.name || user?.studentId} • {user?.studentId}</span>
+                    <span id='Home-logOut' onClick={logout}>로그아웃</span>
                 </div>
 
                 <img src={add3} id='Home-add3'/>
             </div>
-
+            
             <div id='Home-box'>
                 <Outlet context={{userPost, setUserPost}}/>
             </div>
@@ -30,3 +37,13 @@ export default function Home({userPost, setUserPost}) {
         </div>
     );
 }
+
+
+
+// {user?.isAdmin && (
+//     <button id='admin-button' onClick={() => navigate('/admin')}>
+//         관리자 메뉴
+//     </button>
+// )}
+
+//어드민 계정에만 보이는 요소

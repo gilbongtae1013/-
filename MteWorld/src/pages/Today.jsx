@@ -6,7 +6,7 @@ export default function Today() {
             </div>
 
             <div id='Today-inputBox'>
-                <input id='Today-input'/>
+                <input id='Today-input' autoComplete="off"/>
                 <button id='Today-inputSubmit'>
                     &uarr;
                 </button>

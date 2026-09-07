@@ -84,14 +84,15 @@ a {
     flex-direction: column;
     align-items: center;
   }
-    /* 로그인 기능 추가 전 임시 프로필사진 */
     #Home-profileImage {
       width: 204px;
       height: 204px;
       border-radius: 54%;
       border: 1.4px solid rgb(48, 48, 48);
       background-image: url('./assets/profileImage.jpg');
-      background-size: contain;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     #Home-userName {
       font-size: 24px;
@@ -419,6 +420,10 @@ a {
     color: rgb(187, 187, 187);
   }
 
+#Login-container p {
+  color: white;
+}
+
 /* Login 영역*/
 
 #Sign-container {
@@ -506,10 +511,113 @@ a {
 }
 
 #Today-inputSubmit {
-  width: 54px;
+  width: 53px;
   border-radius: 0px 4px 4px 0px;
   cursor: pointer;
   font-size: 24px;
   background-color: rgb(58, 58, 58);
   border: 1px solid rgb(34, 34, 34);
+}
+
+/*Sagam 영역*/
+
+#Sagam-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+#Sagam-title {
+  color: white;
+  font-family: 'A2z';
+}
+
+#Sagam-box {
+  width: 64%;
+  height: 40%;
+  border: 1px solid white;
+  margin-top: 24%;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 42px;
+  background-color: rgba(255, 255, 255, 0.242);
+  font-family: 'GMarketSans';
+}
+  #Sagam-boxCover {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 34px;
+    font-family: 'NanumSquareNeo';
+    cursor: pointer;
+    position: absolute;
+  }
+  #Sagam-boxCover.active {
+    animation: boxCoverHide 1.4s forwards;
+  }
+  @keyframes boxCoverHide {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+
+/*Admin 영역*/
+
+#Admin-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+}
+
+#Admin-sagamSetting {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+#Admin-sagamSetting > span {
+  font-size: 30px;
+  color: white;
+  font-family: 'GMarketSans'; 
+}
+
+#Admin-sagamButtonSet {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+#Admin-sagamButtonSet > button {
+  width: 240px;
+  height: 43px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.512);
+}
+  #Admin-sagamButtonSet > button:hover {
+    background-color: white;
+  }
+
+#Admin-sagamSetting p {
+  color: white;
 }
