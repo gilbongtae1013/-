@@ -66,6 +66,15 @@ const resetSagamIfNeeded = (data) => {
   }
   return data.todaySagam;
 };
+const resetTodayMessagesIfNeeded = (data) => {
+  const dateKey = getSagamDateKey();
+  if (data.todayMessagesDateKey !== dateKey) {
+    data.todayMessages = [];
+    data.todayMessagesDateKey = dateKey;
+    writeData(data);
+  }
+  return data.todayMessages;
+};
 
 const server = http.createServer(async (request, response) => {
   if (request.method === 'OPTIONS') {
@@ -156,6 +165,30 @@ const server = http.createServer(async (request, response) => {
       data.todaySagam = sagam;
       writeData(data);
       return send(response, 200, sagam);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/api/today/messages') {
+      return send(response, 200, resetTodayMessagesIfNeeded(data));
+    }
+
+    if (request.method === 'POST' && url.pathname === '/api/today/messages') {
+      const studentId = getUser(request);
+      if (!studentId) return send(response, 401, { message: '로그인이 필요합니다.' });
+      const { text } = await readBody(request);
+      if (typeof text !== 'string' || !text.trim()) return send(response, 400, { message: '메시지를 입력해주세요.' });
+      if (text.trim().length > 500) return send(response, 400, { message: '메시지는 500자 이하로 입력해주세요.' });
+
+      resetTodayMessagesIfNeeded(data);
+      const user = data.users.find((item) => item.studentId === studentId);
+      const todayMessage = {
+        id: Date.now(),
+        name: user?.name || studentId,
+        text: text.trim(),
+        createdAt: new Date().toISOString(),
+      };
+      data.todayMessages.push(todayMessage);
+      writeData(data);
+      return send(response, 201, todayMessage);
     }
 
     if (request.method === 'GET' && url.pathname === '/api/posts') {

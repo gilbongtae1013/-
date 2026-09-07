@@ -45,5 +45,32 @@
   "todaySagam": {
     "name": "창수쌤",
     "dateKey": "2026-09-07"
-  }
+  },
+  "todayMessages": [
+    {
+      "id": 1788776437926,
+      "name": "take on me",
+      "text": "안녕하세요",
+      "createdAt": "2026-09-07T10:20:37.926Z"
+    },
+    {
+      "id": 1788776440440,
+      "name": "take on me",
+      "text": "저는",
+      "createdAt": "2026-09-07T10:20:40.440Z"
+    },
+    {
+      "id": 1788776460552,
+      "name": "admin",
+      "text": "트위치에서 방송을 하고있는",
+      "createdAt": "2026-09-07T10:21:00.552Z"
+    },
+    {
+      "id": 1788776463923,
+      "name": "admin",
+      "text": "스트리머 게인입니다",
+      "createdAt": "2026-09-07T10:21:03.923Z"
+    }
+  ],
+  "todayMessagesDateKey": "2026-09-07"
 }

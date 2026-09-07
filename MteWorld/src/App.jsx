@@ -58,7 +58,7 @@ function App() {
       {/* 1. 헤더 보이는 메인 페이지들*/}
       <Route path='/' element={user ? <MainLayout userPost={userPost} setUserPost={setUserPost} user={user} setUser={setUser} /> : <Navigate to='/login' replace />}>
         <Route index element={<Community />} />
-        <Route path='today' element={<Today />} />
+        <Route path='today' element={<Today user={user} />} />
         <Route path='post' element={<Post />} />
         <Route path='upload' element={<Upload />} />
         <Route path='sagam' element={<Sagam/>}/>

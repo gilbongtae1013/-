@@ -492,6 +492,19 @@ a {
   height: 82%;
   border: 1px solid rgb(134, 134, 134);
   border-radius: 4px;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.Today-chatMessage {
+  margin-bottom: 8px;
+  color: rgb(225, 225, 225);
+  font-size: 16px;
+  word-break: break-word;
+}
+
+.Today-chatMessage strong {
+  color: rgb(255, 205, 87);
 }
 
 #Today-inputBox {
