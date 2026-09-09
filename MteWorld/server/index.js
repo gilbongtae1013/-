@@ -144,6 +144,22 @@ const server = http.createServer(async (request, response) => {
       return send(response, 200, { studentId: user.studentId, name: user.name || user.studentId, profileImage: user.profileImage || null, isAdmin: isAdmin(user.studentId) });
     }
 
+    if (request.method === 'PUT' && url.pathname === '/api/auth/me') {
+      const studentId = getUser(request);
+      if (!studentId) return send(response, 401, { message: '로그인이 필요합니다.' });
+      const user = data.users.find((item) => item.studentId === studentId);
+      if (!user) return send(response, 404, { message: '사용자를 찾을 수 없습니다.' });
+      const { name, profileImage } = await readBody(request);
+      if (typeof name !== 'string' || !name.trim()) return send(response, 400, { message: '닉네임을 입력해주세요.' });
+      if (profileImage !== undefined && profileImage !== null && (typeof profileImage !== 'string' || profileImage.length > 4 * 1024 * 1024)) {
+        return send(response, 400, { message: '프로필 이미지는 3MB 이하로 선택해주세요.' });
+      }
+      user.name = name.trim();
+      if (profileImage !== undefined) user.profileImage = profileImage;
+      writeData(data);
+      return send(response, 200, { studentId: user.studentId, name: user.name, profileImage: user.profileImage || null, isAdmin: isAdmin(user.studentId) });
+    }
+
     if (request.method === 'POST' && url.pathname === '/api/auth/logout') {
       sessions.delete(getToken(request));
       return send(response, 200, { message: '로그아웃되었습니다.' });
@@ -195,8 +211,40 @@ const server = http.createServer(async (request, response) => {
       const studentId = getUser(request);
       return send(response, 200, data.posts.map((post) => ({
         ...post,
+        authorName: data.users.find((user) => user.studentId === post.author)?.name || post.author,
+        authorProfileImage: data.users.find((user) => user.studentId === post.author)?.profileImage || null,
         liked: Boolean(studentId && post.likedBy?.includes(studentId)),
       })));
+    }
+
+    const commentsMatch = url.pathname.match(/^\/api\/posts\/(\d+)\/comments$/);
+    if (request.method === 'GET' && commentsMatch) {
+      const post = data.posts.find((item) => item.id === Number(commentsMatch[1]));
+      if (!post) return send(response, 404, { message: '게시글을 찾을 수 없습니다.' });
+      return send(response, 200, post.comments || []);
+    }
+
+    if (request.method === 'POST' && commentsMatch) {
+      const studentId = getUser(request);
+      if (!studentId) return send(response, 401, { message: '로그인이 필요합니다.' });
+      const post = data.posts.find((item) => item.id === Number(commentsMatch[1]));
+      if (!post) return send(response, 404, { message: '게시글을 찾을 수 없습니다.' });
+      const { text } = await readBody(request);
+      if (typeof text !== 'string' || !text.trim()) return send(response, 400, { message: '댓글을 입력해주세요.' });
+      if (text.trim().length > 500) return send(response, 400, { message: '댓글은 500자 이하로 입력해주세요.' });
+      const user = data.users.find((item) => item.studentId === studentId);
+      const comment = {
+        id: Date.now(),
+        text: text.trim(),
+        name: user?.name || studentId,
+        studentId,
+        profileImage: user?.profileImage || null,
+        createdAt: new Date().toISOString(),
+      };
+      post.comments ??= [];
+      post.comments.push(comment);
+      writeData(data);
+      return send(response, 201, comment);
     }
 
     const likeMatch = url.pathname.match(/^\/api\/posts\/(\d+)\/like$/);
@@ -211,7 +259,15 @@ const server = http.createServer(async (request, response) => {
       else post.likedBy.splice(likedIndex, 1);
       post.popular = post.likedBy.length;
       writeData(data);
-      return send(response, 200, { post: { ...post, liked: likedIndex === -1 } });
+      const author = data.users.find((user) => user.studentId === post.author);
+      return send(response, 200, {
+        post: {
+          ...post,
+          authorName: author?.name || post.author,
+          authorProfileImage: author?.profileImage || null,
+          liked: likedIndex === -1,
+        },
+      });
     }
 
     if (request.method === 'POST' && url.pathname === '/api/posts') {
@@ -219,7 +275,17 @@ const server = http.createServer(async (request, response) => {
       if (!studentId) return send(response, 401, { message: '로그인이 필요합니다.' });
       const { title, content } = await readBody(request);
       if (!title?.trim() || !content?.trim()) return send(response, 400, { message: '제목과 본문을 입력해주세요.' });
-      const post = { id: Date.now(), title: title.trim(), content: content.trim(), popular: 0, likedBy: [], author: studentId };
+      const user = data.users.find((item) => item.studentId === studentId);
+      const post = {
+        id: Date.now(),
+        title: title.trim(),
+        content: content.trim(),
+        popular: 0,
+        likedBy: [],
+        author: studentId,
+        authorName: user?.name || studentId,
+        authorProfileImage: user?.profileImage || null,
+      };
       data.posts.unshift(post);
       writeData(data);
       return send(response, 201, post);
