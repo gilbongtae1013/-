@@ -23,7 +23,10 @@ export default function Home({userPost, setUserPost, user, setUser}) {
                     <span id='Home-logOut' onClick={logout}>로그아웃</span>
                 </div>
 
-                <img src={add3} id='Home-add3'/>
+                <div id='Home-addBox3'>
+                    <img src={add3} id='Home-add3'/>
+                    <div className='mr-X'>X</div>
+                </div>
             </div>
             
             <div id='Home-box'>
@@ -31,8 +34,14 @@ export default function Home({userPost, setUserPost, user, setUser}) {
             </div>
 
             <div id='Home-rightside'>
-                <img src={add} id='Home-add' />
-                <img src={add2} id='Home-add2'/>
+                <div id='Home-addBox'>
+                    <img src={add} id='Home-add' />
+                    <div className='mr-X'>X</div>
+                </div>
+                <div id='Home-addBox2'>
+                    <img src={add2} id='Home-add2'/>
+                    <div className='mr-X'>X</div>
+                </div>
             </div>
         </div>
     );

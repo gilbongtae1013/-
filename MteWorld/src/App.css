@@ -109,11 +109,15 @@ a {
     #Home-logOut:hover {
       color: purple;
     }
-    #Home-add3 {
+    #Home-addBox3 {
       width: 247px;
       position: absolute;
       bottom: 27.4px;
     }
+      #Home-add3 {
+        width: 100%;
+        height: 100%;
+      }
 
 #Home-rightside {
   width: 22vw;
@@ -124,15 +128,38 @@ a {
   position:sticky;
   top:0;
 }
-  #Home-add {
+  #Home-addBox {
     width: 17.4vw;
     margin-top: 2.4vh;
+    position: relative;
   }
-  #Home-add2 {
+    #Home-add {
+      width: 100%;
+      height: 100%;
+    }
+  #Home-addBox2 {
       width: 254px;
       height: 254px;
-      margin-top: 7.4vh
+      margin-top: 7.4vh;
+      position:relative;
     }
+    #Home-add2 {
+      width: 100%;
+      height: 100%;
+    }
+
+  .mr-X {
+    width: 23px;
+    height: 23px;
+    background-color: rgba(128, 128, 128, 0.411);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+  }
 
 #Home-sortBox {
   margin-top: 6.4vh;
