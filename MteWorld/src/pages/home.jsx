@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import add from '../assets/add.png';
 import add2 from '../assets/add2.png';
@@ -34,9 +35,10 @@ export default function Home({userPost, setUserPost, user, setUser}) {
             </div>
 
             <div id='Home-rightside'>
-                <div id='Home-addBox' onClick={()=>{window.location.href="https://namu.wiki/w/Granny"}}>
+                <div id='Home-addBox' >
                     <img src={add} id='Home-add' />
                     <div className='mr-X'>X</div>
+                    <Link className='Home-kobutton' to='/coup'>코</Link>
                 </div>
                 <div id='Home-addBox2' onClick={()=>{window.location.href="https://namu.wiki/w/Granny"}}>
                     <img src={add2} id='Home-add2'/>

@@ -15,6 +15,8 @@ import EmailConfirm from './pages/EmailConfirm'
 import Sagam from './pages/Sagam'
 import Admin from './pages/Admin'
 import Mypage from './pages/Mypage'
+import Coup from './pages/Coup'
+import CoupWrite from './pages/CoupWrite'
 
 
 function MainLayout({ userPost, setUserPost, user, setUser }) {
@@ -63,7 +65,11 @@ function App() {
         <Route path='post' element={<Post />} />
         <Route path='upload' element={<Upload />} />
         <Route path='sagam' element={<Sagam/>}/>
+        <Route path='coup' element={<Coup/>}/>
+        <Route path='coupwrite' element={<CoupWrite/>}/>
+
         <Route path='mypage' element={<Mypage user={user} setUser={setUser}/>}/>
+
         <Route path='admin' element={user?.isAdmin ? <Admin /> : <Navigate to='/' replace />} />
       </Route>
 
@@ -76,3 +82,7 @@ function App() {
 }
 
 export default App;
+
+
+// cd c:\WelcomeToThe\MteWorld
+// npm.cmd run server

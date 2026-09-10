@@ -221,7 +221,15 @@ const server = http.createServer(async (request, response) => {
     if (request.method === 'GET' && commentsMatch) {
       const post = data.posts.find((item) => item.id === Number(commentsMatch[1]));
       if (!post) return send(response, 404, { message: '게시글을 찾을 수 없습니다.' });
-      return send(response, 200, post.comments || []);
+      const comments = (post.comments || []).map((comment) => {
+        const user = data.users.find((item) => item.studentId === comment.studentId);
+        return {
+          ...comment,
+          name: user?.name || comment.name || comment.studentId,
+          profileImage: user?.profileImage || null,
+        };
+      });
+      return send(response, 200, comments);
     }
 
     if (request.method === 'POST' && commentsMatch) {

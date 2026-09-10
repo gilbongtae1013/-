@@ -59,7 +59,7 @@ export default function Mypage({ user, setUser }) {
     return (
         <div id='Mypage-container'>
             <div id='Mypage-box'>
-                <h1 id='Mypage-title'>마이페이지</h1>
+                <h1 id='Mypage-title'>ㄱㄱㄱㄴㄱ</h1>
                 <div id='Mypage-profileImage' style={profileImage ? { backgroundImage: `url(${profileImage})` } : undefined}></div>
                 <label id='Mypage-imageLabel' htmlFor='Mypage-imageInput'>프로필 이미지 변경</label>
                 <input id='Mypage-imageInput' type='file' accept='image/*' onChange={handleImageChange} />

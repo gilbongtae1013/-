@@ -139,6 +139,18 @@ a {
       width: 100%;
       height: 100%;
     }
+    .Home-kobutton {
+      width: 23px;
+      height: 23px;
+      position: absolute;
+      top: 183px;
+      left: 45%;
+      opacity: 0;
+      background-color: white;
+      z-index: 99999;
+      display: block;
+    }
+
   #Home-addBox2 {
       width: 254px;
       height: 254px;
@@ -881,3 +893,147 @@ a {
   color: rgb(190, 190, 190);
 }
 
+
+/*Coup 영역*/
+
+.Coup-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+#Coup-boxContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 23px;
+  flex-wrap: wrap;
+  row-gap: 53px;
+}
+  .Coup-postCard {
+    border: 1px solid rgba(117, 117, 117, 0.475);
+    width: 32%;
+    height: 203px;
+    padding: 10px 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+.Coup-titleBox {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.Coup-title {
+  font-size: 20.3px;
+  color: white;
+  font-family: 'NanumSquareNeo';
+}
+
+.Coup-location {
+  color: rgb(184, 182, 206);
+  padding: 3px 10px;
+  border-radius: 2px;
+  background-color: rgba(152, 152, 255, 0.337);
+  display: inline-block;
+  width: fit-content;
+  font-size: 13px;
+}
+
+.Coup-bottom {
+  border-top: 1px solid rgba(128, 128, 128, 0.559);
+  width: 100%;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Coup-bottom span {
+  color: white;
+  font-size: 15px;
+}
+
+.Coup-remainDate {
+  background-color: rgba(122, 122, 255, 0.518);
+  padding: 4px 5px;
+  border-radius: 51px;
+  font-family: 'NanumSquareNeo';
+  font-size: 13.5px !important;
+}
+
+.Coup-write {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(36, 36, 36, 0.545);
+  position: absolute;
+  bottom: 23px;
+  right: 23px;
+  border-radius: 54%;
+  border: 1px solid   rgba(174, 174, 174, 0.653);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'NanumSquareNeo';
+}
+  .Coup-write:hover {
+    background-color: rgb(18, 18, 18);
+  }
+
+
+/*Cwrite 영역 */
+
+.Cwrite-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+  align-items: center;
+}
+
+.Cwrite-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 23px;
+}
+  .Cwrite-top > input {
+    width: 80%;
+    height: 53px;
+    background-color: rgb(41, 41, 41);
+    border: 1px solid gray;
+    outline: none;
+    padding: 0px 13px;
+    font-size: 20px;
+    color: white;
+    font-family: 'JoseonPalace';
+  }
+    .Cwrite-top > input:focus {
+      border: 2px solid gray;
+    }
+
+.Cwrite-content {
+  width: 80%;
+  min-height: 500px;
+  resize: none;
+  margin-top: 34px;
+  background-color: rgb(41, 41, 41);
+  border: 1px solid gray;
+  outline: none;
+}
+  .Cwrite-content:focus {
+    border: 2px solid gray;
+  }
